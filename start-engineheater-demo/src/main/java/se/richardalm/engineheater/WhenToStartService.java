@@ -1,6 +1,6 @@
 package se.richardalm.engineheater;
 
-import se.richardalm.billing.BillingService;
+import se.richardalm.statistic.StatisticService;
 import se.richardalm.engineheater.external.TemperatureService;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -9,30 +9,36 @@ import javax.validation.constraints.NotEmpty;
 
 @ApplicationScoped
 public class WhenToStartService {
-    @Inject
+    //@Inject
     TemperatureService temperatureService;
 
-    @Inject
-    BillingService billingService;
+    //@Inject
+    StatisticService statisticService;
+
+    public WhenToStartService(TemperatureService temperatureService, StatisticService statisticService) {
+        this.temperatureService = temperatureService;
+        this.statisticService = statisticService;
+    }
+
     public Integer whenToStart(@NotEmpty(message = "City must be specificed") String city,
                                @NotEmpty(message = "Car must be specified") String car) {
         var tempterature = temperatureService.getTemperature(city);
 
         Integer hoursToRun = temperatureCalculator(tempterature);
 
-        //billingService.createBilling(car, hoursToRun);
+        statisticService.saveStatistic(car, hoursToRun);
 
         return hoursToRun;
     }
 
-    private Integer temperatureCalculator(Integer tempterature){
-        if(tempterature < -25 ) {
+    private Integer temperatureCalculator(Integer temperature){
+        if(temperature < -25 )
             return 4;
-        } else if(tempterature <= -15)
+        else if(temperature <= -15)
             return 3;
-        else if (tempterature <= -5)
+        else if (temperature <= -5)
             return 2;
-        else if (tempterature <= 10)
+        else if (temperature <= 10)
             return 1;
         else
             return 4;

@@ -25,6 +25,6 @@ public class TemperatureService {
 
     public Integer fallbackTemperature(String city){
         Log.error(String.format("Something went wrong with call to Temperature API for city: %s", city));
-        return -45;
+        return -40;
     }
 }

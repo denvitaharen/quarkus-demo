@@ -26,7 +26,7 @@ public class TemperatureResource {
     @GET
     @Path("/{city}")
     public Integer getRandomTemperature(@RestPath String city) {
-        //maybeFail(String.format("Faild getting temperature for: %s", city));
+        maybeFail(String.format("Faild getting temperature for: %s", city));
         return TEMPS.get(new Random().nextInt(TEMPS.size()));
     }
 
