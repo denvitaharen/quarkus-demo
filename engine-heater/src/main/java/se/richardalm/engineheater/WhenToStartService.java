@@ -1,11 +1,9 @@
 package se.richardalm.engineheater;
 
-import se.richardalm.statistic.StatisticService;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.validation.constraints.NotEmpty;
 import se.richardalm.engineheater.external.TemperatureService;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.validation.constraints.NotEmpty;
+import se.richardalm.statistic.StatisticService;
 
 @ApplicationScoped
 public class WhenToStartService {

@@ -3,6 +3,7 @@ package se.richardalm.engineheater;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
 import io.quarkus.test.junit.mockito.InjectSpy;
+import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,7 +12,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import se.richardalm.engineheater.external.TemperatureApi;
 import se.richardalm.statistic.StatisticService;
 
-import javax.inject.Inject;
 import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
