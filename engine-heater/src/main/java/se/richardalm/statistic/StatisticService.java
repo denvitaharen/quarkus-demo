@@ -1,11 +1,10 @@
 package se.richardalm.statistic;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PositiveOrZero;
 import se.richardalm.statistic.entity.Statistic;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.PositiveOrZero;
 
 @ApplicationScoped
 public class StatisticService {

@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 @Disabled
-public class temperatureResourceTest {
+public class TemperatureResourceTest {
 
     @Test
     public void testHelloEndpoint() {

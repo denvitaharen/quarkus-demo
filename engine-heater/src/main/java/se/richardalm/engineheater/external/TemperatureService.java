@@ -1,12 +1,10 @@
 package se.richardalm.engineheater.external;
 
 import io.quarkus.logging.Log;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import org.eclipse.microprofile.faulttolerance.Fallback;
-import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @ApplicationScoped
 public class TemperatureService {
@@ -23,7 +21,7 @@ public class TemperatureService {
         return temperature;
     }
 
-    public Integer fallbackTemperature(String city){
+    private Integer fallbackTemperature(String city){
         Log.error(String.format("Something went wrong with call to Temperature API for city: %s", city));
         return -40;
     }
