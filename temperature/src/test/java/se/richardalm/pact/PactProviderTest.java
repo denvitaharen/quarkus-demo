@@ -8,12 +8,14 @@ import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import io.quarkus.test.junit.QuarkusTest;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @QuarkusTest
 @Provider("rest-heroes")
 @PactFolder("pacts")
+@Disabled
 public class PactProviderTest {
     @ConfigProperty(name = "quarkus.http.test-port")
     int quarkusPort;

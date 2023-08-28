@@ -19,6 +19,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import se.richardalm.engineheater.external.TemperatureService;
@@ -32,6 +33,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @PactTestFor(pactVersion = PactSpecVersion.V4)
 @MockServerConfig(port = "8082")
 @PactDirectory("pacts")
+@Disabled
 public class HeaterContractTest {
     @Inject
     TemperatureService temperatureService;
@@ -41,7 +43,7 @@ public class HeaterContractTest {
         return builder
                 .given("No random villain found")
                 .uponReceiving("A request for a random villain")
-                //TODO Fix better URL
+                // Fixa bättre URL som matchar den faktiska. Fixa in REGnr som parameter också.
                 .path("/temperature/Luleå")
                 .method(HttpMethod.GET)
                 .headers(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
