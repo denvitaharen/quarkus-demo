@@ -28,10 +28,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build Temperature with Maven
-      working-directory: ./temperature
+      working-directory: temperature
       run: mvn -B package --file pom.xml
     - name: Build Engine heater with Maven
-      working-directory: ./engine-heater
+      working-directory: engine-heater
       run: mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
