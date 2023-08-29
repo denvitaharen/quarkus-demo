@@ -30,7 +30,7 @@ public class TemperatureResource {
     }
 
     private void maybeFail(String failureLogMessage) {
-        // We dont want to fail if its running test.
+        // We don't want to fail if its running test.
         if (!LaunchMode.current().equals(LaunchMode.TEST) && new Random().nextBoolean()) {
             Log.error(failureLogMessage);
             throw new RuntimeException("Resource failure.");
