@@ -1,6 +1,7 @@
 package se.richardalm;
 
 import io.quarkus.logging.Log;
+import io.quarkus.runtime.LaunchMode;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -29,7 +30,8 @@ public class TemperatureResource {
     }
 
     private void maybeFail(String failureLogMessage) {
-        if (new Random().nextBoolean()) {
+        // We don't want to fail if its running test.
+        if (!LaunchMode.current().equals(LaunchMode.TEST) && new Random().nextBoolean()) {
             Log.error(failureLogMessage);
             throw new RuntimeException("Resource failure.");
         }
