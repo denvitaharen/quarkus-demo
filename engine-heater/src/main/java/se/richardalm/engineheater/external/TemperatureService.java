@@ -12,7 +12,7 @@ public class TemperatureService {
     @RestClient
     TemperatureApi temperatureApi;
 
-    //@Fallback(fallbackMethod = "fallbackTemperature")
+    @Fallback(fallbackMethod = "fallbackTemperature")
     public Integer getTemperature(String city){
         var temperature = temperatureApi.getTemperature(city);
 
