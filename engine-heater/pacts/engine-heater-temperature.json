@@ -1,0 +1,86 @@
+{
+  "consumer": {
+    "name": "engine-heater"
+  },
+  "interactions": [
+    {
+      "comments": {
+        "testname": "se.richardalm.pact.HeaterContractTest.getTemperatureForCity()",
+        "text": [
+
+        ]
+      },
+      "description": "A request for a temperature for a city",
+      "key": "d393f11b",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "There is an temperature for a city"
+        }
+      ],
+      "request": {
+        "generators": {
+          "path": {
+            "dataType": "STRING",
+            "expression": "/temperature/${city}",
+            "type": "ProviderState"
+          }
+        },
+        "headers": {
+          "Accept": [
+            "application/json"
+          ]
+        },
+        "method": "GET",
+        "path": "/temperature/Lulea"
+      },
+      "response": {
+        "body": {
+          "content": 100,
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "generators": {
+          "body": {
+            "$": {
+              "max": 2147483647,
+              "min": 0,
+              "type": "RandomInt"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.5.6"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "temperature"
+  }
+}
