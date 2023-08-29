@@ -7,7 +7,7 @@ Its based around the problem that you need to calculate how many hours that you 
 The demo is mainly based in the engine-heater microservice and tries to use so many features as possible to show the capabilites of Quarkus.
 
 # Contract testing
-I have added some contract testing to the micro services using PACT. The engine-heater service is an consumer and the temperature service is an provider. The test is in its first iteration, so I havn't got it to work due too some configuration, but the style of the tests is correct.
+I have added some contract testing to the micro services using PACT. The engine-heater service is an consumer and the temperature service is an provider. The contract tests work, but its very simple.
 
 ## What you need
 For this to run you have to use:
