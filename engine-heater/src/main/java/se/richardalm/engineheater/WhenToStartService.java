@@ -1,22 +1,18 @@
 package se.richardalm.engineheater;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.validation.constraints.NotEmpty;
 import se.richardalm.engineheater.external.TemperatureService;
 import se.richardalm.statistic.StatisticService;
 
 @ApplicationScoped
 public class WhenToStartService {
-    //@Inject
+    @Inject
     TemperatureService temperatureService;
 
-    //@Inject
+    @Inject
     StatisticService statisticService;
-
-    public WhenToStartService(TemperatureService temperatureService, StatisticService statisticService) {
-        this.temperatureService = temperatureService;
-        this.statisticService = statisticService;
-    }
 
     public Integer whenToStart(@NotEmpty(message = "City must be specificed") String city,
                                @NotEmpty(message = "Car must be specified") String car) {

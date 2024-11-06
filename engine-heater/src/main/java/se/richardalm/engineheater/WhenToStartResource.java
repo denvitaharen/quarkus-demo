@@ -1,6 +1,7 @@
 package se.richardalm.engineheater;
 
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import org.jboss.resteasy.reactive.RestPath;

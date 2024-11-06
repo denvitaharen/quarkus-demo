@@ -16,7 +16,8 @@ class StatisticResourceTest {
     void getBills() {
         var bill = given()
                 .contentType(ContentType.JSON)
-                .when().get("/bills")
+                .when()
+                .get("/bills")
                 .getBody();
 
         assertThat(bill, is(notNullValue()));
